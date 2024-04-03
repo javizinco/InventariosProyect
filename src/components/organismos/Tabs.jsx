@@ -2,7 +2,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import { v } from "../../styles/variables";
 import { Device } from "../../styles/breackpoints";
-export function Tabs() {
+import { TablaKardex } from "../../index"
+export function Tabs({data}) {
     const [activeTab, setactiveTab]= useState(0);
     const handleclick =(index)=>{
        setactiveTab(index)
@@ -21,7 +22,7 @@ export function Tabs() {
       <span className="glider"></span>
     </ul>
     <div className="tab-content">
-       {activeTab===0 && <span>tab1</span>}
+       {activeTab===0 && <TablaKardex data={data}/>}
        {activeTab===1 && <span>tab2</span>} 
        {activeTab===2 && <span>tab3</span>}  
     </div>
@@ -81,6 +82,7 @@ const Container = styled.div`
         height: 4px;
         width: 180px; 
         bottom:0;
+        top:100%;
       }
     }
   }
