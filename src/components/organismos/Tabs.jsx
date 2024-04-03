@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { v } from "../../styles/variables";
 import { Device } from "../../styles/breackpoints";
-import { TablaKardex } from "../../index"
+import {TablaKardex} from "../../index"
 export function Tabs({data}) {
     const [activeTab, setactiveTab]= useState(0);
     const handleclick =(index)=>{

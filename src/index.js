@@ -39,7 +39,7 @@ export * from './components/organismos/sidebar/SidebarCard';
 export * from './components/organismos/tablas/Paginacion';
 export * from './components/organismos/tablas/TablaCategorias';
 export * from './components/organismos/tablas/TablaKardex';
-export * from './components/organismos/tablas/TablaMarca copy';
+export * from './components/organismos/tablas/TablaMarca';
 export * from './components/organismos/tablas/TablaProductos';
 export * from './components/organismos/tablas/TablaUsuarios';
 export * from './components/templates/CategoriasTemplate';

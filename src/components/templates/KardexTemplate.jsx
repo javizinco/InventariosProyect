@@ -37,7 +37,7 @@ export function KardexTemplate({data}) {
         <Buscador setBuscador={setBuscador}/>
       </section>
       <section className="main">
-       <Tabs data ={data}/>
+       <Tabs data={data}/>
       </section>
     </Container>
   );
