@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v } from "../../../styles/variables";
-import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize } from "../../../index";
+import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize, Buscador, ListaGenerica, useProductosStore } from "../../../index";
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
 export function RegistrarKardex({ onClose, dataSelect, accion,tipo }) {
+  const {dataproductos}= useProductosStore()
+  const [stateListaProd, SetstateListaProd] = useState(false);
   const { insertarMarca, editarMarca } = useMarcaStore();
   const { dataempresa } = useEmpresaStore();
   const {
@@ -39,13 +41,23 @@ export function RegistrarKardex({ onClose, dataSelect, accion,tipo }) {
         <div className="headers">
           <section>
             <h1>
-             Nuevo {tipo == "entrada" ? "entrada" : "salida"}
+             Nueva {tipo == "entrada" ? "entrada" : "salida"}
             </h1>
           </section>
 
           <section>
             <span onClick={onClose}>x</span>
           </section>
+        </div>
+        <div className="contentBuscador">
+          <div>
+            <Buscador/>
+          </div>
+          {
+            stateListaProd && (
+              <ListaGenerica data={dataproductos}/>
+            )
+          }
         </div>
 
         <form className="formulario" onSubmit={handleSubmit(insertar)}>
