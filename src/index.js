@@ -12,6 +12,7 @@ export * from './components/moleculas/BtnCircular';
 export * from './components/moleculas/Btnfiltro';
 export * from './components/moleculas/Btnsave';
 export * from './components/moleculas/CardDatosEmpresa';
+export * from './components/moleculas/CardProductoSelect';
 export * from './components/moleculas/ErrorMolecula';
 export * from './components/moleculas/Mensaje';
 export * from './components/moleculas/SpinnerLoader';
