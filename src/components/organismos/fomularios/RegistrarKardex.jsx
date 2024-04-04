@@ -5,7 +5,7 @@ import { InputText, Btnsave, useMarcaStore,ConvertirCapitalize, Buscador, ListaG
 import { useForm } from "react-hook-form";
 import { useEmpresaStore } from "../../../store/EmpresaStore";
 export function RegistrarKardex({ onClose, dataSelect, accion,tipo }) {
-  const {dataproductos}= useProductosStore()
+  const {dataproductos,setBuscador}= useProductosStore()
   const [stateListaProd, SetstateListaProd] = useState(false);
   const { insertarMarca, editarMarca } = useMarcaStore();
   const { dataempresa } = useEmpresaStore();
@@ -50,12 +50,13 @@ export function RegistrarKardex({ onClose, dataSelect, accion,tipo }) {
           </section>
         </div>
         <div className="contentBuscador">
-          <div>
-            <Buscador/>
+          <div onClick={()=>SetstateListaProd(!stateListaProd )}>
+            <Buscador setBuscador={setBuscador}/>
           </div>
           {
             stateListaProd && (
-              <ListaGenerica data={dataproductos}/>
+              <ListaGenerica data={dataproductos}
+              setState={()=>SetstateListaProd(!stateListaProd)}/>
             )
           }
         </div>
