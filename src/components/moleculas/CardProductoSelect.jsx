@@ -13,6 +13,7 @@ const Container = styled.div`
   border: 1px dashed #54f04f;
   background-color: rgba(84, 240, 79, 0.1);
   padding: 10px;
+  margin-bottom:10px;
   .descripcion{
   color:#1fee61;
   font-weight: 700;
