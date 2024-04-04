@@ -1,21 +1,27 @@
 import styled from "styled-components";
-import { Btnfiltro, Btnsave, Buscador, ContentFiltro, Header, RegistrarMarca, TablaMarca, Tabs, Title,useMarcaStore,v } from "../../index";
+import { Btnfiltro, Btnsave, Buscador, ContentFiltro, Header, RegistrarKardex, RegistrarMarca, TablaMarca, Tabs, Title,useMarcaStore,v } from "../../index";
 import { useState } from "react";
 export function KardexTemplate({data}) {
   const [state, setState] = useState(false);
   const [dataSelect, setdataSelect] = useState([]);
   const [accion, setAccion] = useState("");
   const [openRegistro, SetopenRegistro] = useState(false);
-  const nuevoRegistro=()=>{
-    SetopenRegistro(!openRegistro);
-    setAccion("Nuevo")
-    setdataSelect([])
+  const [tipo, setTipo] = useState("");
+  const nuevaentrada=()=>{
+    SetopenRegistro(true);
+    setTipo("entrada")
+
+  }
+  const nuevasalida=()=>{
+    SetopenRegistro(true);
+    setTipo("salida")
+    
   }
   const {setBuscador} = useMarcaStore()
   return (
     <Container>
       {
-        openRegistro &&  <RegistrarMarca dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
+        openRegistro &&  <RegistrarKardex tipo={tipo} dataSelect={dataSelect} accion={accion} onClose={()=>SetopenRegistro(!openRegistro)}/>
       }
      
       <header className="header">
@@ -28,8 +34,8 @@ export function KardexTemplate({data}) {
           <Title>
             Kardex
           </Title>
-          <Btnsave bgcolor="#52de65" titulo="+Entrada"/>
-          <Btnsave bgcolor="#fb6661" titulo="-Salida"/>
+          <Btnsave bgcolor="#52de65" titulo="+Entrada" funcion={nuevaentrada}/>
+          <Btnsave bgcolor="#fb6661" titulo="-Salida" funcion={nuevasalida}/>
         </ContentFiltro>
        
       </section>
