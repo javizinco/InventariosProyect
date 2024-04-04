@@ -24,6 +24,16 @@ export function Kardex() {
     queryFn: () => mostrarkardex({ _id_empresa: dataempresa?.id }),
     enabled: dataempresa?.id != null,
   });
+  const { data: buscarkardexlista } = useQuery({
+    queryKey: [
+      "buscar kardex",
+      { _id_empresa: dataempresa.id, buscador: buscador },
+    ],
+    queryFn: () =>
+      buscarkardex({ _id_empresa: dataempresa.id, buscador: buscador }),
+    enabled: dataempresa.id != null,
+  });
+  //buscar para lista de productos
   const { data: buscardata } = useQuery({
     queryKey: [
       "buscar productos",

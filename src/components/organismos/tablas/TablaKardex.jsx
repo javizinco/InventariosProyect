@@ -11,6 +11,7 @@ import { ContentAccionesTabla, Paginacion, useMarcaStore, v } from "../../../ind
 import Swal from "sweetalert2";
 import { FaArrowsAltV } from "react-icons/fa";
 import { useState } from "react";
+import {Device} from "../../../styles/breackpoints"
 export function TablaKardex({
   data,
   SetopenRegistro,
@@ -75,6 +76,43 @@ export function TablaKardex({
       accessorKey: "tipo",
       header: "Tipo",
       cell: (info) =><td data-title="Tipo" className="ContentCell">
+        {
+          info.getValue()=="salida"?(<Colorcontent
+          $ancho="70%"$color= "#ed4d4d">
+          {info.getValue()}
+          </Colorcontent>):(<Colorcontent
+          $color="#30c85b">
+          {info.getValue()}
+          </Colorcontent>)
+        }
+        
+      </td> 
+    },
+    {
+      accessorKey: "detalle",
+      header: "Detalle",
+      cell: (info) =><td data-title="Detalle" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "nombres",
+      header: "Usuario",
+      cell: (info) =><td data-title="Usuario" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "cantidad",
+      header: "Cantidad",
+      cell: (info) =><td data-title="Cantidad" className="ContentCell">
+        <span >{info.getValue()}</span>
+      </td> 
+    },
+    {
+      accessorKey: "stock",
+      header: "Stock",
+      cell: (info) =><td data-title= "Stock" className="ContentCell">
         <span >{info.getValue()}</span>
       </td> 
     },
@@ -285,3 +323,16 @@ const Container = styled.div`
     }
   }
 `;
+const Colorcontent = styled.div`
+   color: ${(props) => props.$color};
+   border-radius: 8px;
+   border:1px dashed ${(props) => props.$color};
+   text-align: center;
+   padding: 3px;
+   width: 70%;
+   font-weight: 700;
+   @media ${Device.tablet}{
+    width: 100%;
+
+   }
+`

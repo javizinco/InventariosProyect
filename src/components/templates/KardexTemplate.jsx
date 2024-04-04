@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Btnfiltro, Btnsave, Buscador, ContentFiltro, Header, RegistrarKardex, RegistrarMarca, TablaMarca, Tabs, Title,useMarcaStore,v } from "../../index";
+import { Btnfiltro, Btnsave, Buscador, ContentFiltro, Header, RegistrarKardex, RegistrarMarca, TablaMarca, Tabs, Title,useKardexStore,useMarcaStore,v } from "../../index";
 import { useState } from "react";
 export function KardexTemplate({data}) {
   const [state, setState] = useState(false);
@@ -17,7 +17,7 @@ export function KardexTemplate({data}) {
     setTipo("salida")
     
   }
-  const {setBuscador} = useMarcaStore()
+  const {setBuscador} = useKardexStore()
   return (
     <Container>
       {

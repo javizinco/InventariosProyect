@@ -41,10 +41,6 @@ export async function EditarKardex(p) {
 
 }
 export async function BuscarKardex(p) {
-    const { data} = await supabase
-    .from("Kardex")
-    .select()
-    .eq("id_empresa", p.id_empresa)
-    .ilike("descripcion","%"+p.descripcion+"%")
+    const { data} = await supabase.rpc("buscarkardexempresa",p)
     return data;
 }
