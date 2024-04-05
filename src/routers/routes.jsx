@@ -44,6 +44,8 @@ export function MyRoutes() {
         <Route path="/configurar/personal" element={<Usuarios />} />
         <Route path="/kardex" element={<Kardex />} />
         <Route path="/reportes" element={<Reportes />} />
+        <Route path="/configurar/empresa" element={<Home />} />
+        
       </Route>
     </Routes>
   );
