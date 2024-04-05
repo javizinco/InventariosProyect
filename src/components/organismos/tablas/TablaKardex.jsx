@@ -7,7 +7,7 @@ import {
   flexRender,
 } from "@tanstack/react-table";
 import styled from "styled-components";
-import { ContentAccionesTabla, Paginacion, useMarcaStore, v } from "../../../index";
+import { ContentAccionesTabla, Paginacion, useKardexStore, useMarcaStore, v } from "../../../index";
 import Swal from "sweetalert2";
 import { FaArrowsAltV } from "react-icons/fa";
 import { useState } from "react";
@@ -19,7 +19,7 @@ export function TablaKardex({
   setAccion,
 }) {
   const [pagina, setPagina] = useState(1);
-  const { eliminarMarca } = useMarcaStore();
+  const { eliminarkardex } = useKardexStore();
 
   const editar = (data) => {
     if (data.descripcion === "Generica") {
@@ -35,11 +35,11 @@ export function TablaKardex({
     setAccion("Editar");
   };
   const eliminar = (p) => {
-    if (p.descripcion === "Generica") {
+    if (p.estado === 0) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Este registro no se permite eliminar ya que es valor por defecto.",
+        text: "Este registro ya fue eliminado.",
       });
       return;
     }
@@ -53,7 +53,7 @@ export function TablaKardex({
       confirmButtonText: "Si, eliminar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await eliminarMarca({ id: p.id });
+        await eliminarkardex({ id: p.id });
       }
     });
   };
@@ -62,7 +62,7 @@ export function TablaKardex({
       accessorKey: "descripcion",
       header: "Producto",
       cell: (info) =><td data-title="Producto" className="ContentCell">
-        <span >{info.getValue()}</span>
+        <span style={{textDecoration:info.row.original.estado==0?"line-through":""}} >{info.getValue()}</span>
       </td> 
     },
     {

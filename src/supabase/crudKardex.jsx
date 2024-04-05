@@ -22,7 +22,7 @@ export async function MostrarKardex(p) {
 export async function EliminarKardex(p) {
  
     const { error } = await supabase
-      .from("Kardex")
+      .from("kardex")
       .delete()
       .eq("id", p.id);
     if (error) {
