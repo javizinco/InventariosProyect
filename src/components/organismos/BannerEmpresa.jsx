@@ -12,7 +12,7 @@ export function BannerEmpresa() {
           {dataempresa?.nombre}
         </span>
         <div className="content-text">
-          StockPRO te mantiene siempre informado.
+          Tu Inventario te mantiene siempre informado.
         </div>
         <ContentCards>
           <CardDatosEmpresa titulo="Moneda" valor={dataempresa?.simbolomoneda} />

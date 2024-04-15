@@ -4,7 +4,7 @@ import { Device } from "../../styles/breackpoints";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import carrito from "../../assets/carrito.svg";
+import carrito from "../../assets/inventory.svg";
 import logo from "../../assets/inventarioslogo.png";
 import { MdOutlineInfo } from "react-icons/md";
 import { ThemeContext } from "../../App";
@@ -47,13 +47,13 @@ export function LoginTemplate() {
        {
         state && <RegistrarAdmin setState={()=>setState(!state)}/>
        }
-          <Titulo>StockPRO</Titulo>
+          <Titulo>Inventario</Titulo>
           {stateInicio && (
             <TextoStateInicio>datos incorrectos</TextoStateInicio>
           )}
           <span className="ayuda">
             {" "}
-            Puedes crear una cuenta nueva ó <br></br>solicitar a tu empleador
+            Puedes crear una cuenta nueva ó <br></br>solicitar a tu jefe directo
             una. <MdOutlineInfo />
           </span>
           <p className="frase">Controla tu inventario.</p>
@@ -79,11 +79,11 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">pass</label>
+              <label className="form__label">contraseña</label>
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
-              <Btnsave titulo="Iniciar" bgcolor="#fc6b32" />
+              <Btnsave titulo="Iniciar" bgcolor="#fc8332" />
               <Btnsave
                 funcion={() => setState(!state)}
                 titulo="Crear cuenta"
@@ -132,7 +132,7 @@ const Container = styled.div`
   }
 
   .bannerlateral {
-    background-color: #fc6b32;
+    background-color: #32a1fc;
     height: 100vh;
     display: flex;
     align-items: center;
