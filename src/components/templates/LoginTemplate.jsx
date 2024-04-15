@@ -36,7 +36,7 @@ export function LoginTemplate() {
     <Container >
       <div className="contentLogo">
         <img src={logo}></img>
-        <span>StockPRO</span>
+        <span>Inventario</span>
       </div>
       <div className="bannerlateral">
         <img src={carrito}></img>
@@ -53,7 +53,7 @@ export function LoginTemplate() {
           )}
           <span className="ayuda">
             {" "}
-            Puedes crear una cuenta nueva ó <br></br>solicitar a tu jefe directo
+            Puedes crear una cuenta nueva ó <br></br>solicitar jefe directo 
             una. <MdOutlineInfo />
           </span>
           <p className="frase">Controla tu inventario.</p>
@@ -79,11 +79,11 @@ export function LoginTemplate() {
                   required: true,
                 })}
               />
-              <label className="form__label">contraseña</label>
+              <label className="form__label">pass</label>
               {errors.pass?.type === "required" && <p>Campo requerido</p>}
             </InputText>
             <ContainerBtn>
-              <Btnsave titulo="Iniciar" bgcolor="#fc8332" />
+              <Btnsave titulo="Iniciar" bgcolor="#fca132" />
               <Btnsave
                 funcion={() => setState(!state)}
                 titulo="Crear cuenta"
@@ -132,7 +132,7 @@ const Container = styled.div`
   }
 
   .bannerlateral {
-    background-color: #32a1fc;
+    background-color: #3283fc;
     height: 100vh;
     display: flex;
     align-items: center;

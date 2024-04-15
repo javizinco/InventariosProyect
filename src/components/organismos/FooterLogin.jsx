@@ -7,15 +7,15 @@ export function FooterLogin() {
         <GiPadlock />
         <span>
           Pagina segura para mayor informacion del sistema comuniquese al siguiente numero
-          <br /> Tel/Celular: 3323494495.
+          <br /> Tel/Celular: 3312372782
         </span>
       </section>
       <section className="derechos">
-        <span>Invenatios S. A de C. V</span>
+        <span>Inventarios S. A de C. V</span>
         <div className="separador"></div>
         <span>Todos los derechos reservados</span>
         <div className="separador"></div>
-        <span>© 2024A</span>
+        <span>© 2024 </span>
       </section>
     </Container>
   );
