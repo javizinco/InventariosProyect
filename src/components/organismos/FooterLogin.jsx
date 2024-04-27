@@ -7,7 +7,7 @@ export function FooterLogin() {
         <GiPadlock />
         <span>
           Pagina segura para mayor informacion del sistema comuniquese al siguiente numero
-          <br /> Tel/Celular: 3312372782
+          <br /> Tel/Celular: 3323494495.
         </span>
       </section>
       <section className="derechos">
@@ -15,7 +15,7 @@ export function FooterLogin() {
         <div className="separador"></div>
         <span>Todos los derechos reservados</span>
         <div className="separador"></div>
-        <span>© 2024 </span>
+        <span>© 2024A</span>
       </section>
     </Container>
   );
