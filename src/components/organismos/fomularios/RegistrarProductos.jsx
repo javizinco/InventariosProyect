@@ -158,29 +158,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
     {errors.stock?.type === "required" && <p>Campo requerido</p>}
     {errors.stock?.type === "min" && <p>El stock debe ser mayor o igual a 1</p>}
   </InputText>
-</article>
-<article>
-  <InputText icono={<v.iconostockminimo />}>
-    <input
-      step="0.01"
-      className="form__field"
-      defaultValue={dataSelect.stock_minimo}
-      type="number"
-      placeholder=""
-      {...register("stockminimo", {
-        required: true,
-        min: 1, // El stock mínimo debe ser igual o mayor que 1
-      })}
-    />
-    <label className="form__label">Stock mínimo</label>
-    {errors.stockminimo?.type === "required" && (
-      <p>Campo requerido</p>
-    )}
-    {errors.stockminimo?.type === "min" && (
-      <p>El stock mínimo debe ser mayor o igual a 1</p>
-    )}
-  </InputText>
-</article>
+</article>  
+
             <ContainerSelector>
               <label>Categoria: </label>
               <Selector
@@ -226,23 +205,26 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
               </InputText>
             </article>
             <article>
-              <InputText icono={<v.iconocodigointerno />}>
-                <input
-                  className="form__field"
-                  defaultValue={dataSelect.codigointerno}
-                  type="text"
-                  placeholder=""
-                  {...register("codigointerno", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Codigo interno</label>
-
-                {errors.codigointerno?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
-              </InputText>
-            </article>
+  <InputText icono={<v.iconocodigointerno />}>
+    <input
+      className="form__field"
+      defaultValue={dataSelect.codigointerno}
+      type="text"
+      placeholder=""
+      {...register("codigointerno", {
+        required: true,
+        pattern: /^[1-9]\d*$/, // El código interno debe ser mayor o igual a 1
+      })}
+    />
+    <label className="form__label">Stock Minimo</label>
+    {errors.codigointerno?.type === "required" && (
+      <p>Campo requerido</p>
+    )}
+    {errors.codigointerno?.type === "pattern" && (
+      <p>El stock debe ser mayor o igual a 1</p>
+    )}
+  </InputText>
+</article>
             <article>
               <InputText icono={<v.iconoprecioventa />}>
                 <input
