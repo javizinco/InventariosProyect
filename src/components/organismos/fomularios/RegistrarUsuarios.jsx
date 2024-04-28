@@ -144,27 +144,27 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
               <span className="form__field disabled">{dataSelect.correo}</span>
             )}
 
-            {accion != "Editar" ? (
-              <article>
-                <InputText icono={<v.icononombre />}>
-                  <input
-                    className="form__field"
-                    defaultValue={dataSelect.pass}
-                    type="text"
-                    placeholder=""
-                    {...register("pass", {
-                      required: true,
-                      minLength: 6,
-                    })}
-                  />
-                  <label className="form__label">pass</label>
-                  {errors.pass?.type === "required" && <p>Campo requerido</p>}
-                  {errors.pass?.type === "minLength" && (
-                    <p>Debe tener al menos 6 caracteres</p>
-                  )}
-                </InputText>
-              </article>
-            ) : null}
+{accion !== "Editar" ? (
+  <article>
+    <InputText icono={<v.icononombre />}>
+      <input
+        className="form__field"
+        defaultValue={dataSelect.pass}
+        type="password" 
+        placeholder=""
+        {...register("pass", {
+          required: true,
+          minLength: 6,
+        })}
+      />
+      <label className="form__label">pass</label>
+      {errors.pass?.type === "required" && <p>Campo requerido</p>}
+      {errors.pass?.type === "minLength" && (
+        <p>Debe tener al menos 6 caracteres</p>
+      )}
+    </InputText>
+  </article>
+) : null}
 
             <article>
               <InputText icono={<v.icononombre />}>
@@ -217,22 +217,29 @@ export function RegistrarUsuarios({ onClose, dataSelect, accion }) {
               </InputText>
             </article>
             <article>
-              <InputText icono={<v.iconostockminimo />}>
-                <input
-                  step="0.01"
-                  className="form__field"
-                  defaultValue={dataSelect.telefono}
-                  type="text"
-                  placeholder=""
-                  {...register("telefono", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Telefono</label>
+  <InputText icono={<v.iconostockminimo />}>
+    <input
+      step="0.01"
+      className="form__field"
+      defaultValue={dataSelect.telefono}
+      type="text"
+      placeholder=""
+      {...register("telefono", {
+        required: true,
+        pattern: {
+          value: /^\d{10}$/,
+          message: "El teléfono debe tener exactamente 10 dígitos",
+        },
+      })}
+    />
+    <label className="form__label">Teléfono</label>
 
-                {errors.telefono?.type === "required" && <p>Campo requerido</p>}
-              </InputText>
-            </article>
+    {errors.telefono?.type === "required" && <p>Campo requerido</p>}
+    {errors.telefono?.type === "pattern" && (
+      <p>{errors.telefono.message}</p>
+    )}
+  </InputText>
+</article>
             <article>
               <InputText icono={<v.iconocodigobarras />}>
                 <input

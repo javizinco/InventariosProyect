@@ -142,40 +142,45 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
               />
             </ContainerSelector>
             <article>
-              <InputText icono={<v.iconostock />}>
-                <input
-                  className="form__field"
-                  type="number"
-                  step="0.01"
-                  placeholder=""
-                  defaultValue={dataSelect.stock}
-                  {...register("stock", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Stock</label>
-                {errors.stock?.type === "required" && <p>Campo requerido</p>}
-              </InputText>
-            </article>
-            <article>
-              <InputText icono={<v.iconostockminimo />}>
-                <input
-                  step="0.01"
-                  className="form__field"
-                  defaultValue={dataSelect.stock_minimo}
-                  type="number"
-                  placeholder=""
-                  {...register("stockminimo", {
-                    required: true,
-                  })}
-                />
-                <label className="form__label">Stock minimo</label>
-
-                {errors.stockminimo?.type === "required" && (
-                  <p>Campo requerido</p>
-                )}
-              </InputText>
-            </article>
+  <InputText icono={<v.iconostock />}>
+    <input
+      className="form__field"
+      type="number"
+      step="0.01"
+      placeholder=""
+      defaultValue={dataSelect.stock}
+      {...register("stock", {
+        required: true,
+        min: 1, // El stock debe ser igual o mayor que 1
+      })}
+    />
+    <label className="form__label">Stock</label>
+    {errors.stock?.type === "required" && <p>Campo requerido</p>}
+    {errors.stock?.type === "min" && <p>El stock debe ser mayor o igual a 1</p>}
+  </InputText>
+</article>
+<article>
+  <InputText icono={<v.iconostockminimo />}>
+    <input
+      step="0.01"
+      className="form__field"
+      defaultValue={dataSelect.stock_minimo}
+      type="number"
+      placeholder=""
+      {...register("stockminimo", {
+        required: true,
+        min: 1, // El stock mínimo debe ser igual o mayor que 1
+      })}
+    />
+    <label className="form__label">Stock mínimo</label>
+    {errors.stockminimo?.type === "required" && (
+      <p>Campo requerido</p>
+    )}
+    {errors.stockminimo?.type === "min" && (
+      <p>El stock mínimo debe ser mayor o igual a 1</p>
+    )}
+  </InputText>
+</article>
             <ContainerSelector>
               <label>Categoria: </label>
               <Selector
@@ -275,7 +280,8 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                   <p>Campo requerido</p>
                 )}
               </InputText>
-            </article>
+            </article>       
+
           </section>
           <div className="btnguardarContent">
             <Btnsave
@@ -302,7 +308,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
       </div>
     </Container>
   );
-}
+}  
 const Container = styled.div`
   transition: 0.5s;
   top: 0;
