@@ -103,7 +103,7 @@ export const DataModulosConfiguracion =[
     link:"/configurar/marca",
    
   },
-
+  
 ]
 //tipo usuario
 export const TipouserData = [

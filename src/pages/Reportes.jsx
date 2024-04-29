@@ -12,7 +12,7 @@ import {
 
 export function Reportes() {
   const {datapermisos} = useUsuariosStore();
-  const statePermiso = datapermisos.some((objeto)=>objeto.modulos.nombre.includes("Marca de productos"))
+  const statePermiso = datapermisos.some((objeto)=>objeto.modulos.nombre.includes("Salidas varias"))
 
 
   const { mostrarkardex } = useKardexStore();
