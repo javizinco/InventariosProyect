@@ -145,7 +145,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
   <InputText icono={<v.iconostock />}>
     <input
       className="form__field"
-      type="number"
+      type="text"
       step="0.01"
       placeholder=""
       defaultValue={dataSelect.stock}
@@ -231,7 +231,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                   step="0.01"
                   className="form__field"
                   defaultValue={dataSelect.precioventa}
-                  type="number"
+                  type="text"
                   placeholder=""
                   {...register("precioventa", {
                     required: true,
@@ -250,7 +250,7 @@ export function RegistrarProductos({ onClose, dataSelect, accion }) {
                   step="0.01"
                   className="form__field"
                   defaultValue={dataSelect.preciocompra}
-                  type="number"
+                  type="text"
                   placeholder=""
                   {...register("preciocompra", {
                     required: true,
