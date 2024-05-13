@@ -122,10 +122,7 @@ export function TablaKardex({
       enableSorting:false,
       cell: (info) => (
         <td className="ContentCell">
-          <ContentAccionesTabla
-            funcionEditar={() => editar(info.row.original)}
-            funcionEliminar={() => eliminar(info.row.original)}
-          />
+           
         </td>
       ),
     },
