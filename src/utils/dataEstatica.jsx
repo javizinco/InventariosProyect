@@ -10,11 +10,7 @@ export const DesplegableUser = [
     icono: <v.iconoUser/>,
     tipo: "miperfil",
   },
-  {
-    text: "Configuracion",
-    icono: <v.iconoSettings/>,
-    tipo: "configuracion",
-  },
+ 
   {
     text: "Cerrar sesión",
     icono: <v.iconoCerrarSesion/>,

@@ -31,9 +31,7 @@ export function ReportesTemplate() {
           <Title>
             Reportes
           </Title>
-           <Btnfiltro funcion={nuevoRegistro} bgcolor="#f6f3f3"
-            textcolor="#353535"
-            icono={<v.agregar/>}/>
+           
         </ContentFiltro>
        
       </section>
